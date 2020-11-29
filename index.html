@@ -48,6 +48,12 @@
 <script>
 const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
+// this replaces a, the, an with nothing so it's not counted below. the i makes it case insensitive. /regular expression/
+function strip(bandName) {
+  return bandName.replace(/^(a |the |an )/i, '').trim();
+}
+
+// function to sort list alphabetically. Runs through list and works out which has the highest value and puts it on top
 const sortedBands = bands.sort(function (a, b) {
     if(a > b) {
         return 1;
@@ -56,7 +62,7 @@ const sortedBands = bands.sort(function (a, b) {
     }
 });
 
-console.log(sortedBands)
+console.log(sortedBands);
 
 </script>
 
