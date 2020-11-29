@@ -54,14 +54,23 @@ function strip(bandName) {
 }
 
 // function to sort list alphabetically. Runs through list and works out which has the highest value and puts it on top
-const sortedBands = bands.sort(function (a, b) {
-    if(a > b) {
-        return 1;
-    } else {
-        return -1;
-    }
-});
+//const sortedBands = bands.sort(function (a, b) {
+//    if(a > b) {
+//        return 1;
+//    } else {
+//       return -1;//
+//   }
+// });
 
+// Alternative way to do the above
+const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
+
+
+document.querySelector('#bands').innerHTML =
+  sortedBands
+    .map(band => `<li>${band}</li>`)
+    .join(''); //this joins it into one big string
+    
 console.log(sortedBands);
 
 </script>
